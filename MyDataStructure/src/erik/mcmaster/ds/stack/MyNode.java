@@ -1,4 +1,4 @@
-package erik.mcmaster.ds;
+package erik.mcmaster.ds.stack;
 
 class MyNode {
 	protected String mycontent = "";

@@ -1,5 +1,5 @@
-package erik.mcmaster.ds;
-import erik.mcmaster.ds.MyNode;
+package erik.mcmaster.ds.stack;
+
 
 public class MyStackImpl implements MyStack{
 

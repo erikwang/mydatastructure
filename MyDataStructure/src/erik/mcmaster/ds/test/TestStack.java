@@ -1,7 +1,7 @@
 package erik.mcmaster.ds.test;
 
-import erik.mcmaster.ds.MyStack;
-import erik.mcmaster.ds.MyStackImpl;
+import erik.mcmaster.ds.stack.MyStack;
+import erik.mcmaster.ds.stack.MyStackImpl;
 
 public class TestStack {
 
