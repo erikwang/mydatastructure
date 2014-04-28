@@ -2,10 +2,12 @@ package erik.mcmaster.ds.tree;
 
 public class MyBinarySearchTreeImpl implements MyBinarySearchTree{
 
-	int[] thevalues = {423,323,423,333,2243,5423,123,543,234,123};
-	public TreeNode rootnode = new TreeNode(thevalues[0]);
+	public TreeNode rootnode;
 	int count = 0;
-	
+	int nodecount = 0;
+	int ltreedep = 0;
+	int rtreedep = 0;
+		
 	public TreeNode getRootnode() {
 		return rootnode;
 	}
@@ -75,9 +77,12 @@ public class MyBinarySearchTreeImpl implements MyBinarySearchTree{
 		return false;
 	}
 	@Override
-	public boolean createTree() {
+	public boolean createTree(int[] thevalues) {
 		// TODO Auto-generated method stub
+		
+		rootnode = new TreeNode(thevalues[0]);
 		showMessage("Root node "+rootnode.getValue()+" was added to tree as root");
+		
 		for (int t=1; t<thevalues.length;t++){
 			TreeNode childNode = new TreeNode(thevalues[t]);
 			addNode(childNode,rootnode);
@@ -92,5 +97,29 @@ public class MyBinarySearchTreeImpl implements MyBinarySearchTree{
 	public TreeNode getRootNode() {
 		// TODO Auto-generated method stub
 		return rootnode;
+	}
+	@Override
+	public int numOfNodes(TreeNode therootnode) {
+		if(therootnode == null){
+			return nodecount;
+		}else{
+			return numOfNodes(therootnode.getLeftChildNode()) + numOfNodes(therootnode.getRightChildNode()) + 1;
+		}
+	}
+	@Override
+	public boolean deleteNode() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public int depthOfTree(TreeNode therootnode) {
+		// TODO Auto-generated method stub
+		if(therootnode == null){
+			return ltreedep;
+		}
+		
+		int dl = depthOfTree(therootnode.getLeftChildNode());
+		int dr = depthOfTree(therootnode.getRightChildNode());
+		return dl > dr ? dl+1:dr+1;
 	}	
 }
